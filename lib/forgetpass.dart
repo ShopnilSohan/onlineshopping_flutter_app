@@ -108,7 +108,7 @@ class _ForgetpassState extends State<Forgetpass> {
                 height: sohan / 12,
                 width: sohan1 / 1.1,
                 decoration: BoxDecoration(
-                  color: const Color(0XFFff781f),
+                  color: Colors.green,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: TextButton(
@@ -147,7 +147,7 @@ class _ForgetpassState extends State<Forgetpass> {
                           text: 'Sign Up',
                           style: GoogleFonts.ubuntu(
                             textStyle: const TextStyle(
-                                fontSize: 20, color: Color(0XFFFFA500)),
+                                fontSize: 20, color: Colors.green,)
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {

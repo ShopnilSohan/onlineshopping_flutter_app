@@ -41,6 +41,8 @@ dependencies:
   fluttertoast: ^8.0.8
   paginated_search_bar: ^1.1.2
   flutter_carousel_slider: ^1.0.8
+  flutter_rating_bar: ^4.0.0
+  image_picker: ^0.8.4+4
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +74,15 @@ flutter:
     - images/offer2.png
     - images/offer3.png
     - images/offer4.png
+    - images/Untitled design.png
+    - images/food.png
+    - images/Gift.png
+    - images/fashion.png
+    - images/shoes.png
+    - images/men.png
+    - images/womwn.png
+    - images/kids.png
+    - images/jewellery.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

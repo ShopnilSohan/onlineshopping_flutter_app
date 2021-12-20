@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:onlineshopping/dashboard.dart';
 import 'package:onlineshopping/forgetpass.dart';
+import 'package:onlineshopping/main.dart';
+import 'package:onlineshopping/profile.dart';
 import 'package:onlineshopping/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sign_button/sign_button.dart';
@@ -198,7 +200,7 @@ class _MySiginState extends State<MySigin> {
         ),
         ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: const Color(0XFFff781f),
+                primary: (Colors.green),
                 fixedSize: const Size(320, 65),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30))),
@@ -215,7 +217,7 @@ class _MySiginState extends State<MySigin> {
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.SNACKBAR);
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Mydashboard()));
+                    MaterialPageRoute(builder: (context) => Myhome()));
               } else {
                 Fluttertoast.showToast(
                     msg: 'Please enter valid id and password',
@@ -278,7 +280,7 @@ class _MySiginState extends State<MySigin> {
                     text: 'Sign Up',
                     style: GoogleFonts.ubuntu(
                       textStyle: const TextStyle(
-                          fontSize: 20, color: Color(0XFFFFA500)),
+                          fontSize: 20, color: Colors.green),
                     ),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {

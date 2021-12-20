@@ -318,7 +318,7 @@ class _MysignUpState extends State<MysignUp> {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    primary: const Color(0XFFff781f),
+                                    primary:  (Colors.green),
                                     fixedSize: const Size(320, 65),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:

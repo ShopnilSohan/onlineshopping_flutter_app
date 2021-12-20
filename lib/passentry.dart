@@ -164,8 +164,8 @@ class _PassEntryState extends State<PassEntry> {
               ),
               ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      primary: const Color(0XFFff781f),
-                      fixedSize: const Size(320, 65),
+                      primary: Colors.green,
+                      fixedSize: Size(320, 65),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30))),
                   onPressed: () {
