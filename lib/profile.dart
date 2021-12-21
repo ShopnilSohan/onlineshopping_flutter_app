@@ -48,6 +48,7 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     child: ListView(
+                      physics: NeverScrollableScrollPhysics(),
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
@@ -150,6 +151,7 @@ class _ProfileState extends State<Profile> {
               right: 5,
               child: Center(
                 child: CircleAvatar(
+                  backgroundColor: Colors.black,
                   radius: 65,
                   child: displaySignatureFile(),
                 ),
@@ -182,9 +184,9 @@ class _ProfileState extends State<Profile> {
                         ),
                       );
                     });},
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 5,right: 5,top: 185),
-                    child: Icon(Icons.camera_alt,color: Colors.black,size: 30,),
+                  child: const Padding(
+                    padding: EdgeInsets.only(left: 85,right: 5,top: 155),
+                    child: Icon(Icons.cloud_upload,color: Colors.green,size: 30,),
                   ),
             ),
             )

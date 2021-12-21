@@ -11,14 +11,12 @@ import 'package:sign_button/sign_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MySigin extends StatefulWidget {
-  const MySigin({Key? key}) : super(key: key);
 
   @override
   _MySiginState createState() => _MySiginState();
 }
 
 class _MySiginState extends State<MySigin> {
-
   bool hiddenpassword = true;
   bool _checkbox = false;
 
@@ -39,7 +37,10 @@ class _MySiginState extends State<MySigin> {
       pass = pref.getString('pass')!;
     });
   }
-
+  setloginvalue() async {
+    final pref = await SharedPreferences.getInstance();
+    pref.setString("login", "1");
+  }
   Widget build(BuildContext context) {
     var sohan = MediaQuery.of(context).size.height;
     var sohan1 = MediaQuery.of(context).size.width;
@@ -50,67 +51,67 @@ class _MySiginState extends State<MySigin> {
         Text(
           "Sign Up",
           style: GoogleFonts.ubuntu(
-              textStyle: const TextStyle(color: Colors.black54, fontSize: 20)),
+              textStyle:   TextStyle(color: Colors.black54, fontSize: 20)),
         ),
-        const SizedBox(
+      SizedBox(
           height: 50,
         ),
         Center(
           child: Text(
             'Welcome Back',
             style: GoogleFonts.ubuntu(
-              textStyle: const TextStyle(fontSize: 30, color: Colors.black),
+              textStyle:   TextStyle(fontSize: 30, color: Colors.black),
             ),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(12),
+          padding:   EdgeInsets.all(12),
           child: Center(
               child: Text(
                   'Sign in with your email and password \n        or continue with social media',
                   style: GoogleFonts.ubuntu(
                     textStyle:
-                        const TextStyle(fontSize: 18, color: Colors.black54),
+                          TextStyle(fontSize: 18, color: Colors.black54),
                   ))),
         ),
         Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(15),
+              padding:   EdgeInsets.all(15),
               child: Column(
                 children: [
                   TextField(
                     controller: emailController,
-                    style: const TextStyle(color: Colors.black),
+                    style:   TextStyle(color: Colors.black),
                     decoration: InputDecoration(
-                        prefixIcon: const Icon(
+                        prefixIcon:   Icon(
                           Icons.mail,
                           color: Colors.black,
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
-                          borderSide: const BorderSide(
+                          borderSide:   BorderSide(
                             color: Colors.black,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
-                          borderSide: const BorderSide(
+                          borderSide:   BorderSide(
                             color: Colors.black,
                           ),
                         ),
                         labelText: 'Email or phone number',
-                        labelStyle: const TextStyle(color: Colors.black),
+                        labelStyle:   TextStyle(color: Colors.black),
                         hintText: 'Enter your email or phone number'),
                   ),
-                  const SizedBox(
+                    SizedBox(
                     height: 30,
                   ),
                   TextField(
                     maxLength: 8,
                     obscureText: hiddenpassword,
                     controller: passController,
-                    style: const TextStyle(color: Colors.black),
+                    style:   TextStyle(color: Colors.black),
                     decoration: InputDecoration(
                       suffixIcon: IconButton(
                         onPressed: () {
@@ -125,29 +126,29 @@ class _MySiginState extends State<MySigin> {
                           color: Colors.black,
                         ),
                       ),
-                      prefixIcon: const Icon(
+                      prefixIcon:   Icon(
                         Icons.vpn_key,
                         color: Colors.black,
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
-                        borderSide: const BorderSide(
+                        borderSide:   BorderSide(
                           color: Colors.black,
                         ),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
-                        borderSide: const BorderSide(
+                        borderSide:   BorderSide(
                           color: Colors.black,
                         ),
                       ),
                       labelText: 'Password',
                       labelStyle: GoogleFonts.ubuntu(
-                        textStyle: const TextStyle(color: Colors.black),
+                        textStyle:   TextStyle(color: Colors.black),
                       ),
                       hintText: 'Enter your password',
                       hintStyle: GoogleFonts.ubuntu(
-                        textStyle: const TextStyle(color: Colors.black),
+                        textStyle:   TextStyle(color: Colors.black),
                       ),
                     ),
                   ),
@@ -158,7 +159,7 @@ class _MySiginState extends State<MySigin> {
                         children: [
                           Checkbox(
                               checkColor: Colors.black,
-                              activeColor: const Color(0XFFFFA500),
+                              activeColor:   Color(0XFFFFA500),
                               value: _checkbox,
                               onChanged: (value) {
                                 setState(() {
@@ -168,7 +169,7 @@ class _MySiginState extends State<MySigin> {
                           Text(
                             'Remember me',
                             style: GoogleFonts.ubuntu(
-                              textStyle: const TextStyle(
+                              textStyle:   TextStyle(
                                   fontSize: 15, color: Colors.black),
                             ),
                           ),
@@ -184,7 +185,7 @@ class _MySiginState extends State<MySigin> {
                           child: Text(
                             'Forgot password',
                             style: GoogleFonts.ubuntu(
-                              textStyle: const TextStyle(
+                              textStyle:   TextStyle(
                                   fontSize: 15, color: Colors.black),
                             ),
                           )),
@@ -195,13 +196,13 @@ class _MySiginState extends State<MySigin> {
             ),
           ],
         ),
-        const SizedBox(
+          SizedBox(
           height: 25,
         ),
         ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: (Colors.green),
-                fixedSize: const Size(320, 65),
+                fixedSize:   Size(320, 65),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30))),
             onPressed: () {
@@ -216,6 +217,7 @@ class _MySiginState extends State<MySigin> {
                     msg: 'Login Successful',
                     toastLength: Toast.LENGTH_LONG,
                     gravity: ToastGravity.SNACKBAR);
+                setloginvalue();
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => Myhome()));
               } else {
@@ -228,19 +230,19 @@ class _MySiginState extends State<MySigin> {
             child: Text(
               'Continue',
               style: GoogleFonts.ubuntu(
-                textStyle: const TextStyle(fontSize: 29, color: Colors.black),
+                textStyle:   TextStyle(fontSize: 29, color: Colors.black),
               ),
             )),
-        const SizedBox(
+          SizedBox(
           height: 10,
         ),
         Text(
           'Or',
           style: GoogleFonts.ubuntu(
-            textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+            textStyle:   TextStyle(fontSize: 20, color: Colors.black),
           ),
         ),
-        const SizedBox(
+          SizedBox(
           height: 25,
         ),
         SizedBox(
@@ -262,24 +264,24 @@ class _MySiginState extends State<MySigin> {
             ],
           ),
         ),
-        const SizedBox(
+          SizedBox(
           height: 20,
         ),
         Container(
           width: sohan1 / 1,
-          margin: const EdgeInsets.only(top: 20),
+          margin:   EdgeInsets.only(top: 20),
           child: RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
               text: '''Don't have an account? ''',
               style: GoogleFonts.ubuntu(
-                textStyle: const TextStyle(fontSize: 20, color: Colors.black),
+                textStyle:   TextStyle(fontSize: 20, color: Colors.black),
               ),
               children: [
                 TextSpan(
                     text: 'Sign Up',
                     style: GoogleFonts.ubuntu(
-                      textStyle: const TextStyle(
+                      textStyle:   TextStyle(
                           fontSize: 20, color: Colors.green),
                     ),
                     recognizer: TapGestureRecognizer()

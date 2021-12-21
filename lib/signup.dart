@@ -211,7 +211,7 @@ class _MysignUpState extends State<MysignUp> {
                                           'Gender :',
                                           style: GoogleFonts.ubuntu(
                                             textStyle: const TextStyle(
-                                                fontSize: 25,
+                                                fontSize: 20,
                                                 color: Colors.black),
                                           ),
                                         ),
@@ -219,7 +219,7 @@ class _MysignUpState extends State<MysignUp> {
                                       Row(
                                         children: [
                                           Radio(
-                                              activeColor: Colors.deepOrange,
+                                              activeColor: Colors.green,
                                               value: 1,
                                               groupValue: _radiovalue,
                                               onChanged: (value) {
@@ -240,7 +240,7 @@ class _MysignUpState extends State<MysignUp> {
                                       Row(
                                         children: [
                                           Radio(
-                                              activeColor: Colors.deepOrange,
+                                              activeColor: Colors.green,
                                               value: 2,
                                               groupValue: _radiovalue,
                                               onChanged: (value) {
@@ -318,7 +318,7 @@ class _MysignUpState extends State<MysignUp> {
                               ),
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                    primary:  (Colors.green),
+                                    primary: (Colors.green),
                                     fixedSize: const Size(320, 65),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
@@ -335,15 +335,15 @@ class _MysignUpState extends State<MysignUp> {
                                         gravity: ToastGravity.SNACKBAR);
                                   } else {
                                     Fluttertoast.showToast(
-                                        msg: 'Signup Successful',textColor: Colors.black,
+                                        msg: 'Signup Successful',
+                                        textColor: Colors.black,
                                         toastLength: Toast.LENGTH_LONG,
                                         gravity: ToastGravity.SNACKBAR);
                                     setSharedPref();
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                const MySigin()));
+                                            builder: (context) => MySigin()));
                                   }
                                 },
                                 child: Text(

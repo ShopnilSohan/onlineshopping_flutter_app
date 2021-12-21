@@ -15,22 +15,18 @@ class _ChoiceRowState extends State<ChoiceRow> {
   @override
   Widget build(BuildContext context) {
 
-    print("Status L $isPressedList");
-
-    return
-
-      Row(
+    return Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(width: 30),
           GestureDetector(
             onTap: (){
-              print("Hello");
+
               setState(() {
                 isPressedList[0] = true;
                 isPressedList[1] = false;
                 isPressedList[2] = false;
-                isPressedList[3] = false;
+
               });
             },
             child: ChoiceButton(
@@ -45,7 +41,7 @@ class _ChoiceRowState extends State<ChoiceRow> {
                 isPressedList[0] = false;
                 isPressedList[1] = true;
                 isPressedList[2] = false;
-                isPressedList[3] = false;
+
               });
             },
             child: ChoiceButton(
@@ -60,27 +56,11 @@ class _ChoiceRowState extends State<ChoiceRow> {
                 isPressedList[0] = false;
                 isPressedList[1] = false;
                 isPressedList[2] = true;
-                isPressedList[3] = false;
               });
             },
             child: ChoiceButton(
               isPressed: isPressedList[2],
               label: 'XL',
-            ),
-          ),
-          SizedBox(width: 10),
-          GestureDetector(
-            onTap: (){
-              setState(() {
-                isPressedList[0] = false;
-                isPressedList[1] = false;
-                isPressedList[2] = false;
-                isPressedList[3] = true;
-              });
-            },
-            child: ChoiceButton(
-              isPressed: isPressedList[3],
-              label: 'XXL',
             ),
           ),
         ],
@@ -104,7 +84,7 @@ class ChoiceButton extends StatelessWidget {
     var sohan1 = MediaQuery.of(context).size.width;
     return Container(
       height:sohan/ 20,
-      width: sohan1/8,
+      width: sohan1/9,
       decoration: BoxDecoration(
         borderRadius: BorderRadiusDirectional.circular(30),
         color: isPressed! ? Colors.green : Colors.black,

@@ -7,6 +7,7 @@ import 'package:flutter_carousel_slider/carousel_slider_indicators.dart';
 import 'package:flutter_carousel_slider/carousel_slider_transforms.dart';
 import 'package:onlineshopping/customwidget/Custom.dart';
 import 'package:onlineshopping/profile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'customwidget/drawer.dart';
 import 'customwidget/productdetails.dart';
 import 'customwidget/productlistmodel.dart';
@@ -28,11 +29,11 @@ final imagelist=[
 ];
 final List<Productlistmodel> ProductlistModel=[
   Productlistmodel(
-      'TY1001',
+      '2002',
       'Yellow T-Shirt',
       'Yellow Shirt 100 % Linen with yellow details on the sleeves and neck. Casual design shirt for men without losing the elegance for the garment.',
-      99,
-      10,
+      350,
+      5,
       2,
       10,
       'https://user-images.githubusercontent.com/95240967/145766298-7e81d22d-19f4-45dd-a3be-4f7f77de09d6.png'),
@@ -44,6 +45,7 @@ final List<Productlistmodel> ProductlistModel=[
 
 class _MydashboardState extends State<Mydashboard> {
   @override
+
   Widget build(BuildContext context) {
 
     const drawerHeader=UserAccountsDrawerHeader(
