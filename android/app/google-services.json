@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "81434855421",
+    "project_id": "signin-ebf1a",
+    "storage_bucket": "signin-ebf1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81434855421:android:b0c77d03a2d0775433fb94",
+        "android_client_info": {
+          "package_name": "com.example.onlineshopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81434855421-n4k0p6tigls9qn2ff0eb7bovsslk9958.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.onlineshopping",
+            "certificate_hash": "7bf668d0bde9d3580ab86bc0f4d1edb3d081c6ba"
+          }
+        },
+        {
+          "client_id": "81434855421-mddtfe0k3hq6pd7qic347udule79peo1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDH-7QXHgWZ79cSm7wmdCz7oYuAJvu_uLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81434855421-mddtfe0k3hq6pd7qic347udule79peo1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

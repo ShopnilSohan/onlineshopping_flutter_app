@@ -5,10 +5,16 @@ import 'package:onlineshopping/favourite.dart';
 import 'package:onlineshopping/order.dart';
 import 'package:onlineshopping/profile.dart';
 import 'package:onlineshopping/splash.dart';
+import 'package:firebase_core/firebase_core.dart';
+
+import 'customwidget/twostep.dart';
 void main(){
   runApp(ShopTown());
+  Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 }
+
 class ShopTown extends StatelessWidget {
 
   @override
