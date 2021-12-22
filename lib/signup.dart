@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server/gmail.dart';
 import 'package:onlineshopping/loginpage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -38,7 +40,7 @@ class _MysignUpState extends State<MysignUp> {
                   'Sign Up',
                   style: GoogleFonts.ubuntu(
                     textStyle:
-                        const TextStyle(fontSize: 25, color: Colors.black54),
+                    const TextStyle(fontSize: 25, color: Colors.black54),
                   ),
                 ),
               ),
@@ -50,7 +52,7 @@ class _MysignUpState extends State<MysignUp> {
                   'Register Account',
                   style: GoogleFonts.ubuntu(
                     textStyle:
-                        const TextStyle(fontSize: 35, color: Colors.black),
+                    const TextStyle(fontSize: 35, color: Colors.black),
                   ),
                 ),
               ),
@@ -64,7 +66,7 @@ class _MysignUpState extends State<MysignUp> {
                     'Complete your details or continue\n               with social media',
                     style: GoogleFonts.ubuntu(
                       textStyle:
-                          const TextStyle(fontSize: 18, color: Colors.black54),
+                      const TextStyle(fontSize: 18, color: Colors.black54),
                     ),
                   ),
                 ),
@@ -92,14 +94,14 @@ class _MysignUpState extends State<MysignUp> {
                                           decoration: InputDecoration(
                                             enabledBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                               borderSide: const BorderSide(
                                                 color: Colors.black,
                                               ),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                               borderSide: const BorderSide(
                                                 color: Colors.black,
                                               ),
@@ -116,7 +118,7 @@ class _MysignUpState extends State<MysignUp> {
                                             ),
                                             border: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                             ),
                                           ),
                                         ),
@@ -132,14 +134,14 @@ class _MysignUpState extends State<MysignUp> {
                                           decoration: InputDecoration(
                                             enabledBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                               borderSide: const BorderSide(
                                                 color: Colors.black54,
                                               ),
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
+                                              BorderRadius.circular(15),
                                               borderSide: const BorderSide(
                                                 color: Colors.black54,
                                               ),
@@ -156,7 +158,7 @@ class _MysignUpState extends State<MysignUp> {
                                             ),
                                             border: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(10),
+                                              BorderRadius.circular(10),
                                             ),
                                           ),
                                         ),
@@ -176,14 +178,14 @@ class _MysignUpState extends State<MysignUp> {
                                         ),
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                          BorderRadius.circular(15),
                                           borderSide: const BorderSide(
                                             color: Colors.black,
                                           ),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(15),
+                                          BorderRadius.circular(15),
                                           borderSide: const BorderSide(
                                             color: Colors.black,
                                           ),
@@ -198,7 +200,7 @@ class _MysignUpState extends State<MysignUp> {
                                               color: Colors.black54),
                                         ),
                                         hintText:
-                                            'Enter your email or phone number'),
+                                        'Enter your email or phone number'),
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -288,14 +290,14 @@ class _MysignUpState extends State<MysignUp> {
                                         ),
                                         enabledBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(20),
+                                          BorderRadius.circular(20),
                                           borderSide: const BorderSide(
                                             color: Colors.black,
                                           ),
                                         ),
                                         focusedBorder: OutlineInputBorder(
                                           borderRadius:
-                                              BorderRadius.circular(20),
+                                          BorderRadius.circular(20),
                                           borderSide: const BorderSide(
                                             color: Colors.black,
                                           ),
@@ -322,7 +324,7 @@ class _MysignUpState extends State<MysignUp> {
                                     fixedSize: const Size(320, 65),
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(30))),
+                                        BorderRadius.circular(30))),
                                 onPressed: () {
                                   if (firstnameController.text.isEmpty ||
                                       lastnameController.text.isEmpty ||
@@ -330,13 +332,15 @@ class _MysignUpState extends State<MysignUp> {
                                       passController.text.isEmpty) {
                                     Fluttertoast.showToast(
                                         msg:
-                                            'please enter your name, email and password',
+                                        'please enter your name, email and password',
                                         toastLength: Toast.LENGTH_LONG,
                                         gravity: ToastGravity.SNACKBAR);
                                   } else {
+                                    mail ();
                                     Fluttertoast.showToast(
                                         msg: 'Signup Successful',
-                                        textColor: Colors.black,
+                                        textColor: Colors.white,
+                                        backgroundColor: Colors.green,
                                         toastLength: Toast.LENGTH_LONG,
                                         gravity: ToastGravity.SNACKBAR);
                                     setSharedPref();
@@ -376,4 +380,36 @@ class _MysignUpState extends State<MysignUp> {
     pref.setString('userlname', lastnameController.text);
     pref.setString('pass', passController.text);
   }
+  Future mail ()async {
+    final smtpServer = gmail('shopnilsohan01@gmail.com', 'sohan2011s');
+    final message = Message()
+      ..from = Address('shopnilsohan01@gmail.com','Shopnil Sohan')
+      ..recipients.add('mehedihasansohan527@gmail.com')
+      ..subject = 'Welcome to ShopTown'
+      ..text = 'This is the plain text.\nThis is line 2 of the text part.'
+      ..html = '''<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+  <div style="margin:50px auto;width:70%;padding:20px 0">
+    <div style="border-bottom:1px solid #eee">
+      <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">ShopTown</a>
+    </div>
+    <p style="font-size:1.1em">Hi Dear,</p>
+    <p>Thank you for choosing our Brand. Thanks for signing up to keep in touch with ShopTwn. From now  on, you'ill get regular updates on fare sales and special offers. Also thank you for using our app</p>
+    <p style="font-size:0.9em;">Regards,<br />ShopTown</p>
+    <hr style="border:none;border-top:1px solid #eee" />
+    <div style="float:right;padding:8px 0;color:#aaa;font-size:0.8em;line-height:1;font-weight:300">
+      <p>ShopTown LCC</p>
+      <p>Most trusted online shopping App</p>
+    </div>
+  </div>
+</div>''';
+    try {
+      final sendReport = await send(message, smtpServer);
+      print('Message sent: ' + sendReport.toString());
+    } on MailerException catch (e) {
+      Fluttertoast.showToast(msg: 'Email not sent');
+    }
+  }
+
+
+
 }
