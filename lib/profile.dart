@@ -77,7 +77,7 @@ class _ProfileState extends State<Profile> {
                             ),
                           ],
                         ),
-                        SizedBox(height: sohan/55),
+                        SizedBox(height: sohan/65),
                         const Divider(
                           thickness: 0.1,
                           color: Color(0xFF505050),

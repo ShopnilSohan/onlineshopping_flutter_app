@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:onlineshopping/customwidget/productlistmodel.dart';
 import 'invoices.dart';
 import 'multiplechoice.dart';
-
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 class DetailsP extends StatefulWidget {
   final Productlistmodel prodetails;
   DetailsP(this.prodetails);
@@ -24,7 +24,6 @@ class _DetailsPState extends State<DetailsP> {
   getbuttonvalue() {}
 
   @override
-
   Widget build(BuildContext context) {
     var sohan = MediaQuery.of(context).size.height;
     var sohan1 = MediaQuery.of(context).size.width;
@@ -63,7 +62,7 @@ class _DetailsPState extends State<DetailsP> {
             //child: Image.network(,fit: BoxFit.fill,),
           ),
           Padding(
-            padding:    EdgeInsets.all(15),
+            padding: EdgeInsets.all(15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -85,19 +84,19 @@ class _DetailsPState extends State<DetailsP> {
             ),
           ),
           Padding(
-            padding:    EdgeInsets.only(left: 15, bottom: 5),
+            padding: EdgeInsets.only(left: 15, bottom: 5),
             child: Text(
               'Product Id : ${widget.prodetails.id}',
               style: TextStyle(color: Colors.black, fontSize: 20),
             ),
           ),
           Padding(
-            padding:    EdgeInsets.only(left: 15),
+            padding: EdgeInsets.only(left: 15),
             child: Text('Price: \৳${widget.prodetails.price}',
                 style: TextStyle(fontSize: 25)),
           ),
           Padding(
-            padding:    EdgeInsets.only(left: 15, top: 10),
+            padding: EdgeInsets.only(left: 15, top: 10),
             child: Text(
               'Description: ${widget.prodetails.description}',
               style: TextStyle(color: Colors.black, fontSize: 20),
@@ -109,86 +108,84 @@ class _DetailsPState extends State<DetailsP> {
         decoration:
             BoxDecoration(border: Border(top: BorderSide(color: Colors.black))),
         child: SizedBox(
-            height: 60,
-            child: Material(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-              elevation: 25,
-              color: Colors.white,
-              child: Row(children: [
-                Container(
-                  margin: EdgeInsets.only(right: 8.0, left: 8.0),
-                  child: IconButton(
-                      icon: favoritecolor == true
-                          ? Icon(
-                              Icons.favorite_outline,
-                              color: Colors.black,
-                              size: 30,
-                            )
-                          : Icon(
-                              Icons.favorite,
-                              color: Colors.red,
-                              size: 30,
-                            ),
-                      onPressed: () {
-                        setState(() {
-                          favoritecolor = !favoritecolor;
-                        });
-                      }),
+          height: 60,
+          child: Material(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+            elevation: 25,
+            color: Colors.white,
+            child: Row(children: [
+              Container(
+                margin: EdgeInsets.only(right: 8.0, left: 8.0),
+                child: IconButton(
+                    icon: favoritecolor == true
+                        ? Icon(
+                            Icons.favorite_outline,
+                            color: Colors.black,
+                            size: 30,
+                          )
+                        : Icon(
+                            Icons.favorite,
+                            color: Colors.red,
+                            size: 30,
+                          ),
+                    onPressed: () {
+                      setState(() {
+                        favoritecolor = !favoritecolor;
+                      });
+                    }),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                  child: VerticalDivider(
+                    color: Colors.black,
+                    thickness: 1.5,
+                  ),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 10, bottom: 10),
-                    child: VerticalDivider(
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 8.0),
+                child: IconButton(
+                    icon: Icon(Icons.chat, color: Colors.black),
+                    onPressed: () {}),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Container(
+                  height: 50,
+                  width: 110,
+                  decoration: BoxDecoration(
+                      color: Colors.orange,
+                      borderRadius: BorderRadius.circular(16)),
+                  child: TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Buy',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  height: sohan / 10,
+                  width: sohan1 / 3.5,
+                  decoration: BoxDecoration(
                       color: Colors.black,
-                      thickness: 1.5,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 8.0),
-                  child: IconButton(
-                      icon: Icon(Icons.chat, color: Colors.black),
-                      onPressed: () {}),
-                ),
-                Padding(
-                  padding:    EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 50,
-                    width: 110,
-                    decoration: BoxDecoration(
-                        color: Colors.orange,
-                        borderRadius: BorderRadius.circular(16)),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Buy',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-
-                Padding(
-                  padding:    EdgeInsets.all(8.0),
-                  child: Container(
-                    height: sohan / 10,
-                    width: sohan1 / 3.5,
-                    decoration: BoxDecoration(
-                        color: Colors.black,
-                        borderRadius: BorderRadius.circular(16)),
-                    child: TextButton(
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return StatefulBuilder(builder:
-                                  (BuildContext context, StateSetter setState) {
-                                return Dialog(
-                                    child: Container(
+                      borderRadius: BorderRadius.circular(16)),
+                  child: TextButton(
+                    onPressed: () {
+                      showMaterialModalBottomSheet(
+                          context: context,
+                          builder: (context) =>StatefulBuilder(builder: (BuildContext context, StateSetter setState){
+                            return  SingleChildScrollView(
+                                controller: ModalScrollController.of(context),
+                                child: Container(
                                   height: sohan / 2.2,
                                   width: sohan1 / 1.01,
                                   decoration: BoxDecoration(
@@ -196,23 +193,22 @@ class _DetailsPState extends State<DetailsP> {
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Padding(
-                                    padding:    EdgeInsets.all(15),
+                                    padding: const EdgeInsets.all(15),
                                     child: Column(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      CrossAxisAlignment.start,
                                       children: [
                                         Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               'Add to Cart',
                                               style: GoogleFonts.ubuntu(
-                                                textStyle:    TextStyle(
+                                                textStyle: TextStyle(
                                                     fontSize: 22,
                                                     color: Colors.black,
-                                                    fontWeight:
-                                                        FontWeight.bold),
+                                                    fontWeight: FontWeight.bold),
                                               ),
                                             ),
                                             TextButton(
@@ -220,13 +216,12 @@ class _DetailsPState extends State<DetailsP> {
                                                 Navigator.pop(context);
                                               },
                                               child: Text('X',
-                                              style: GoogleFonts.ubuntu(
-                                              textStyle:    TextStyle(
-                                                  fontSize: 20,
-                                                  color: Colors.black,
-                                                 ),
-                                              )
-                                              ),
+                                                  style: GoogleFonts.ubuntu(
+                                                    textStyle: TextStyle(
+                                                      fontSize: 20,
+                                                      color: Colors.black,
+                                                    ),
+                                                  )),
                                             ),
                                           ],
                                         ),
@@ -239,12 +234,12 @@ class _DetailsPState extends State<DetailsP> {
                                         ),
                                         Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
                                               'Quantity',
                                               style: GoogleFonts.ubuntu(
-                                                textStyle:    TextStyle(
+                                                textStyle: TextStyle(
                                                   fontSize: 19,
                                                   color: Colors.black,
                                                 ),
@@ -258,8 +253,8 @@ class _DetailsPState extends State<DetailsP> {
                                                 flex: 2,
                                                 child: Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceEvenly,
+                                                  MainAxisAlignment
+                                                      .spaceEvenly,
                                                   children: [
                                                     TextButton(
                                                       onPressed: () {
@@ -280,8 +275,7 @@ class _DetailsPState extends State<DetailsP> {
                                                       '|',
                                                       style: TextStyle(
                                                           fontSize: 25,
-                                                          color:
-                                                              Colors.black54),
+                                                          color: Colors.black54),
                                                     ),
                                                     Text(
                                                       '$counter',
@@ -293,8 +287,7 @@ class _DetailsPState extends State<DetailsP> {
                                                       '|',
                                                       style: TextStyle(
                                                           fontSize: 25,
-                                                          color:
-                                                              Colors.black54),
+                                                          color: Colors.black54),
                                                     ),
                                                     TextButton(
                                                       onPressed: () {
@@ -329,7 +322,7 @@ class _DetailsPState extends State<DetailsP> {
                                             Text(
                                               'Size :',
                                               style: GoogleFonts.ubuntu(
-                                                textStyle:    TextStyle(
+                                                textStyle: TextStyle(
                                                   fontSize: 22,
                                                   color: Colors.black,
                                                 ),
@@ -339,8 +332,7 @@ class _DetailsPState extends State<DetailsP> {
                                           ],
                                         ),
                                         Padding(
-                                          padding:
-                                                 EdgeInsets.only(top: 20),
+                                          padding: EdgeInsets.only(top: 20),
                                           child: Align(
                                             alignment: Alignment.bottomRight,
                                             child: Container(
@@ -349,16 +341,14 @@ class _DetailsPState extends State<DetailsP> {
                                               decoration: BoxDecoration(
                                                   color: Colors.green,
                                                   borderRadius:
-                                                      BorderRadius.circular(
-                                                          20)),
+                                                  BorderRadius.circular(20)),
                                               child: TextButton(
                                                   child: Text('Order',
                                                       style: GoogleFonts.ubuntu(
-                                                          textStyle:
-                                                                 TextStyle(
-                                                        fontSize: 20,
-                                                        color: Colors.black,
-                                                      ))),
+                                                          textStyle: TextStyle(
+                                                            fontSize: 20,
+                                                            color: Colors.black,
+                                                          ))),
                                                   onPressed: () {
                                                     Navigator.push(
                                                         context,
@@ -376,46 +366,20 @@ class _DetailsPState extends State<DetailsP> {
                                     ),
                                   ),
                                 ));
-                              });
-                            });
+                          })
+                      );
 
-                        //Navigator.push(context, MaterialPageRoute(builder: (context)=> AddCart()));
-                      },
-                      child: Text(
-                        'Add to Cart',
-                        style: TextStyle(color: Colors.white, fontSize: 13),
-                      ),
+                    },
+                    child: Text(
+                      'Add to Cart',
+                      style: TextStyle(color: Colors.white, fontSize: 13),
                     ),
                   ),
                 ),
-
-                // Padding(
-                //   padding:    EdgeInsets.all(8.0),
-                //   child: Container(
-                //     height:sohan /10,
-                //     width: sohan1/3.5,
-                //
-                //     decoration: BoxDecoration(
-                //         color: Colors.black,
-                //         borderRadius: BorderRadius.circular(16)
-                //     ),
-                //     child: TextButton(onPressed: () {
-                //       showDialog(context: context, builder: (context){
-                //         return Dialog(
-                //             child: Invoice(widget.prodetails,counter),
-                //
-                //         );
-                //       });
-                //
-                //       //Navigator.push(context, MaterialPageRoute(builder: (context)=> Invoice(widget.prodetails,counter)));
-                //     },
-                //       child: Text('Add to Cart',style: TextStyle(color: Colors.white,fontSize: 13),),
-                //     ),
-                //
-                //   ),
-                // ),
-              ]),
-            )),
+              ),
+            ]),
+          ),
+        ),
       ),
     );
   }

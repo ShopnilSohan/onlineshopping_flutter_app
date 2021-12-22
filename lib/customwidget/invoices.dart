@@ -42,25 +42,128 @@ class _invoiceState extends State<invoice> {
                         'Billing Summary',
                         style: GoogleFonts.ubuntu(
                           textStyle: const TextStyle(
-                              fontSize: 25,
+                              fontSize: 22,
                               color: Colors.black,
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          'Order No: ${widget.Prodetails.id}',
-                          style: GoogleFonts.ubuntu(
-                            textStyle: const TextStyle(
-                                fontSize: 25,
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
+                      Align(alignment: Alignment.topLeft,
+                        child: Container(
+                          height: sohan/6,
+                          width: sohan1/3,
+                          child: Card(
+                            elevation: 20,
+                            child: Image.network(widget.Prodetails.imageurl,fit: BoxFit.fill,),
                           ),
                         ),
                       ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Order No :',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text(
+                            '${widget.Prodetails.id}',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
                       SizedBox(
                         height: 10,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Product Name :',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text(
+                            '${widget.Prodetails.title}',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),SizedBox(
+                        height: 10,
+                      ),
+
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Product Quantity:',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text(
+                            '${widget.counter}',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Size',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                          Text(
+                            'L',
+                            style: GoogleFonts.ubuntu(
+                              textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black54,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1,
+                        color: Colors.black54,
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -143,7 +246,7 @@ class _invoiceState extends State<invoice> {
                       ),
                       Divider(
                         thickness: 2,
-                        color: Colors.black,
+                        color: Colors.black54,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -162,55 +265,68 @@ class _invoiceState extends State<invoice> {
                             style: GoogleFonts.ubuntu(
                               textStyle: const TextStyle(
                                   fontSize: 20,
-                                  color: Colors.black54,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.bold),
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
-                      Container(
-                        height: 200,
-                        child: TextField(
-                          style: const TextStyle(color: Colors.black, height: 4),
-                          decoration: InputDecoration(
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: const BorderSide(
-                                  color: Colors.black,
-                                ),
+                      TextField(
+                        style: const TextStyle(color: Colors.black, height: 1),
+                        decoration: InputDecoration(
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                color: Colors.black,
                               ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5),
-                                borderSide: const BorderSide(
-                                  color: Colors.black,
-                                ),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5),
+                              borderSide: const BorderSide(
+                                color: Colors.black,
                               ),
-                              labelText: 'Order Comment',
-                              labelStyle: const TextStyle(color: Colors.black),
-                              hintText: 'Type here....'),
-                        ),
+                            ),
+                            labelText: 'Order Comment',
+                            labelStyle: const TextStyle(color: Colors.black),
+                            hintText: 'Type here....'),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: sohan/10,
-                            width: sohan1/2,
-                            decoration: BoxDecoration(
-                                color: Colors.green,
-                              borderRadius: BorderRadius.circular(15)
+                          Card(
+                            elevation: 20,
+                            color: Colors.green,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+
                             ),
-                            child: TextButton(
-                                onPressed:(){},
-                                child: Text('Cash On Delivery',style: GoogleFonts.ubuntu(
-                                  textStyle: const TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),)),
+                            child: TextButton(onPressed: () {  }, child:Text('Cash on Delivery',style: GoogleFonts.ubuntu(
+                                textStyle: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold))),
+
+                            ),
                           ),
+                          Card(
+                            elevation: 20,
+                            color: Colors.green,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              
+                          ),
+                            child: TextButton(onPressed: () {  }, child:Text('Payment',style: GoogleFonts.ubuntu(
+                                textStyle: const TextStyle(
+                                    fontSize: 15,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold))),
+                              
+                            ),
+                          ),
+                          
                         ],
                       )
                     ],
