@@ -338,6 +338,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  otp_pin_field:
+    dependency: "direct main"
+    description:
+      name: otp_pin_field
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   paginated_search_bar:
     dependency: "direct main"
     description:

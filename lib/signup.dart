@@ -15,8 +15,8 @@ class MysignUp extends StatefulWidget {
 
 TextEditingController firstnameController = TextEditingController();
 TextEditingController lastnameController = TextEditingController();
-TextEditingController emailController = TextEditingController();
 TextEditingController passController = TextEditingController();
+TextEditingController emailController = TextEditingController();
 String? name = stdin.readLineSync();
 String? email = stdin.readLineSync();
 String? pass = stdin.readLineSync();
@@ -384,7 +384,7 @@ class _MysignUpState extends State<MysignUp> {
     final smtpServer = gmail('shopnilsohan01@gmail.com', 'sohan2011s');
     final message = Message()
       ..from = Address('shopnilsohan01@gmail.com','Shopnil Sohan')
-      ..recipients.add('mehedihasansohan527@gmail.com')
+      ..recipients.add(emailController.value.text)
       ..subject = 'Welcome to ShopTown'
       ..text = 'This is the plain text.\nThis is line 2 of the text part.'
       ..html = '''<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
@@ -392,7 +392,7 @@ class _MysignUpState extends State<MysignUp> {
     <div style="border-bottom:1px solid #eee">
       <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">ShopTown</a>
     </div>
-    <p style="font-size:1.1em">Hi Dear,</p>
+    <p style="font-size:1.1em">Hi Dear ,</p>
     <p>Thank you for choosing our Brand. Thanks for signing up to keep in touch with ShopTwn. From now  on, you'ill get regular updates on fare sales and special offers. Also thank you for using our app</p>
     <p style="font-size:0.9em;">Regards,<br />ShopTown</p>
     <hr style="border:none;border-top:1px solid #eee" />

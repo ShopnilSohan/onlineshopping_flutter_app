@@ -4,6 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:onlineshopping/otp.dart';
 import 'package:onlineshopping/passentry.dart';
 import 'package:onlineshopping/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -13,17 +14,18 @@ import 'package:mailer/smtp_server/gmail.dart';
 class Forgetpass extends StatefulWidget {
   @override
   State<Forgetpass> createState() => _ForgetpassState();
+
 }
 
 class _ForgetpassState extends State<Forgetpass> {
   TextEditingController emailController = TextEditingController();
-  String email = 'sohan';
+  String email = 'sohan@gmail.com';
+
 
   void initState() {
     getpref();
     generateRandomNumber();
   }
-
 
   @override
   getpref() async {
@@ -33,7 +35,7 @@ class _ForgetpassState extends State<Forgetpass> {
     });
   }
 
-  int number =0;
+  int number = 0;
 
   Widget build(BuildContext context) {
     var sohan = MediaQuery.of(context).size.height;
@@ -122,11 +124,11 @@ class _ForgetpassState extends State<Forgetpass> {
                 child: TextButton(
                   onPressed: () {
                     if (email == emailController.text) {
-                      mail ();
+                      mail();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const PassEntry()));
+                              builder: (context) =>Otps(number.toString())));
                     } else {
                       Fluttertoast.showToast(
                           msg: 'Please enter your valid email',
@@ -180,14 +182,15 @@ class _ForgetpassState extends State<Forgetpass> {
     );
   }
 
-  Future mail ()async {
+  Future mail() async {
     final smtpServer = gmail('shopnilsohan01@gmail.com', 'sohan2011s');
     final message = Message()
-      ..from = Address('shopnilsohan01@gmail.com','Shopnil Sohan')
-      ..recipients.add('mehedihasansohan527@gmail.com')
+      ..from = Address('shopnilsohan01@gmail.com', 'Shopnil Sohan')
+      ..recipients.add(emailController.value.text)
       ..subject = 'Otp verification'
       ..text = 'This is the plain text.\nThis is line 2 of the text part.'
-      ..html = '''<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
+      ..html =
+          '''<div style="font-family: Helvetica,Arial,sans-serif;min-width:1000px;overflow:auto;line-height:2">
   <div style="margin:50px auto;width:70%;padding:20px 0">
     <div style="border-bottom:1px solid #eee">
       <a href="" style="font-size:1.4em;color: #00466a;text-decoration:none;font-weight:600">ShopTown</a>
@@ -213,10 +216,9 @@ class _ForgetpassState extends State<Forgetpass> {
 
   generateRandomNumber() {
     var random = new Random();
-    int a = (random.nextInt(90000) + 90000);
+    int a = (random.nextInt(9000) + 9000);
     setState(() {
       number = a;
     });
   }
-
 }

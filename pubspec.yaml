@@ -48,6 +48,7 @@ dependencies:
   mailer: ^5.0.2
   google_sign_in: ^5.2.1
   firebase_auth: ^3.3.4
+  otp_pin_field: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -81,13 +82,13 @@ flutter:
     - images/offer4.png
     - images/Untitled design.png
     - images/food.png
-    - images/Gift.png
     - images/fashion.png
     - images/shoes.png
     - images/men.png
     - images/womwn.png
     - images/kids.png
     - images/jewellery.png
+    - images/bag.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

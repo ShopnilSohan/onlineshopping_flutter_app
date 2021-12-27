@@ -29,7 +29,7 @@ class _DetailsPState extends State<DetailsP> {
     var sohan1 = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.green,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -48,21 +48,22 @@ class _DetailsPState extends State<DetailsP> {
       body: ListView(
         children: [
           Container(
-            height: 300,
-            width: 300,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(
-                      widget.prodetails.imageurl,
-                    ),
-                    fit: BoxFit.fill),
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(25),
-                    bottomRight: Radius.circular(25))),
-            //child: Image.network(,fit: BoxFit.fill,),
+            height: 320,
+            child: Card(
+              shadowColor: Colors.green,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(25),
+                    bottomRight: Radius.circular(25))
+              ),
+              elevation: 10,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 25,right: 25,top: 20,bottom: 20),
+                child: Image.network(widget.prodetails.imageurl,fit: BoxFit.fill,),
+              ),
+            ),
           ),
           Padding(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -84,7 +85,7 @@ class _DetailsPState extends State<DetailsP> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 15, bottom: 5),
+            padding: const EdgeInsets.only(left: 15, bottom: 5),
             child: Text(
               'Product Id : ${widget.prodetails.id}',
               style: TextStyle(color: Colors.black, fontSize: 20),
@@ -145,27 +146,10 @@ class _DetailsPState extends State<DetailsP> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(right: 8.0),
+                margin: const EdgeInsets.only(right: 8.0),
                 child: IconButton(
                     icon: Icon(Icons.chat, color: Colors.black),
                     onPressed: () {}),
-              ),
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Container(
-                  height: 50,
-                  width: 110,
-                  decoration: BoxDecoration(
-                      color: Colors.orange,
-                      borderRadius: BorderRadius.circular(16)),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Buy',
-                      style: TextStyle(color: Colors.white, fontSize: 20),
-                    ),
-                  ),
-                ),
               ),
               SizedBox(
                 width: 10,
@@ -173,10 +157,10 @@ class _DetailsPState extends State<DetailsP> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  height: sohan / 10,
-                  width: sohan1 / 3.5,
+                  height: sohan / 9,
+                  width: sohan1 / 2,
                   decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Colors.green,
                       borderRadius: BorderRadius.circular(16)),
                   child: TextButton(
                     onPressed: () {
