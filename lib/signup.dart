@@ -149,12 +149,12 @@ class _MysignUpState extends State<MysignUp> {
                                             labelText: "Lastname",
                                             labelStyle: GoogleFonts.ubuntu(
                                               textStyle: const TextStyle(
-                                                  color: Colors.black54),
+                                                  color: Colors.black),
                                             ),
                                             hintText: "Lastname",
                                             hintStyle: GoogleFonts.ubuntu(
                                               textStyle: const TextStyle(
-                                                  color: Colors.black54),
+                                                  color: Colors.black),
                                             ),
                                             border: OutlineInputBorder(
                                               borderRadius:

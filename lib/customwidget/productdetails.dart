@@ -145,7 +145,7 @@ class _DetailsPState extends State<DetailsP> {
 
                 Text('Quantity :',
                   style: GoogleFonts.ubuntu(
-                    textStyle: TextStyle(color: Colors.black,fontSize: sohan* .03),
+                    textStyle: TextStyle(color: Colors.black,fontSize: 22),
                   ),),
                 Container(
                   decoration:BoxDecoration(
@@ -153,60 +153,55 @@ class _DetailsPState extends State<DetailsP> {
                     borderRadius: BorderRadius.circular(20)
                   ) ,
 
-                  height: sohan/20,
-                  child: Flexible(
-                    flex: 2,
-                    child: Row(
-                      mainAxisAlignment:
-                      MainAxisAlignment
-                          .spaceEvenly,
-                      children: [
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              if (counter > 1) {
-                                counter--;
-                              }
-                            });
-                          },
-                          child: Text(
-                            '-',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 22),
-                          ),
-                        ),
-                        VerticalDivider(
-                          color: Colors.black,
-                          thickness: 2,
-                        ),
-                        Text(
-                          '$counter',
+                  height: 50,
+                  child: Row(
+                    mainAxisAlignment:
+                    MainAxisAlignment
+                        .spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            if (counter > 1) {
+                              counter--;
+                            }
+                          });
+                        },
+                        child: Text(
+                          '-',
                           style: TextStyle(
                               color: Colors.black,
-                              fontSize: 25),
+                              fontSize: 22),
                         ),
-                        VerticalDivider(
-                          color: Colors.black,
-                          thickness: 2,
+                      ),
+                     Text('|',style: TextStyle(
+                       color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold
+                     ),),
+                      Text(
+                        '$counter',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25),
+                      ),
+                      Text('|',style: TextStyle(
+                          color: Colors.black,fontSize: 20,fontWeight: FontWeight.bold
+                      ),),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            if (counter < 10) {
+                              counter++;
+                            }
+                          });
+                        },
+                        child: Text(
+                          '+',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22),
                         ),
-                        TextButton(
-                          onPressed: () {
-                            setState(() {
-                              if (counter < 10) {
-                                counter++;
-                              }
-                            });
-                          },
-                          child: Text(
-                            '+',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 22),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ],
