@@ -30,7 +30,8 @@ class custom_widget extends StatelessWidget {
             Divider(
               height: 8,
             ),
-            Text(text, style: GoogleFonts.ubuntu(
+            Text(text,
+              style: GoogleFonts.ubuntu(
               textStyle: TextStyle(color: Colors.black,fontSize: sohan* .02),
             ),)
           ],

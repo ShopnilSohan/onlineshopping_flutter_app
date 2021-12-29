@@ -12,8 +12,8 @@ class Order extends StatefulWidget {
 class _OrderState extends State<Order> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-
+    return Center(
+      child: Image.network('https://user-images.githubusercontent.com/95240967/147699379-d09a6b42-d048-476b-b03f-c958acbd4ff9.png',fit: BoxFit.fill,),
     );
   }
 }

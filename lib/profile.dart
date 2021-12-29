@@ -14,13 +14,18 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  String userfname='';
+  String userlname='';
+  String email='';
   File? imageFile;
   @override
+
   void initState() {
+    getSharedPref();
 
   }
-
   @override
+
   Widget build(BuildContext context) {
     var sohan = MediaQuery.of(context).size.height;
     var sohan1 = MediaQuery.of(context).size.width;
@@ -62,11 +67,11 @@ class _ProfileState extends State<Profile> {
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Text ('Shopnil Sohan',style: GoogleFonts.ubuntu (textStyle:TextStyle(
+                                      Text ('$userfname $userlname',style: GoogleFonts.ubuntu (textStyle:TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: sohan/40,color: Colors.black
                                       ),),),
-                                      Text ('mehedihasan@gmail.com',style: GoogleFonts.ubuntu (textStyle: TextStyle(
+                                      Text ('$email',style: GoogleFonts.ubuntu (textStyle: TextStyle(
                                           fontWeight: FontWeight.w600,color: Colors.black54,
                                           fontSize: sohan/45
                                       ),),)
@@ -185,7 +190,7 @@ class _ProfileState extends State<Profile> {
                       );
                     });},
                   child: const Padding(
-                    padding: EdgeInsets.only(left: 85,right: 5,top: 155),
+                    padding: EdgeInsets.only(left: 105,right: 5,top: 155),
                     child: Icon(Icons.cloud_upload,color: Colors.green,size: 30,),
                   ),
             ),
@@ -200,7 +205,17 @@ class _ProfileState extends State<Profile> {
 
 
   }
-  getSharedPref() async {}
+  getSharedPref() async {
+
+
+    final pref = await SharedPreferences.getInstance();
+    setState(() {
+      userfname = pref.getString('userfname')!;
+      userlname= pref.getString('userlname')!;
+      email=pref.getString('email')!;
+    }
+    );
+  }
 
   _getFromGallery() async {
     PickedFile? pickedFile = await ImagePicker().getImage(
@@ -240,4 +255,5 @@ class _ProfileState extends State<Profile> {
       ),
     );
   }
+
 }

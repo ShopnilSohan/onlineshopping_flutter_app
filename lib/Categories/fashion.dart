@@ -149,16 +149,11 @@ class _FashionState extends State<Fashion> {
                                 mainAxisAlignment:
                                 MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  RatingBarIndicator(
-                                    rating: 3.5,
-                                    itemBuilder: (context, index) => Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    ),
-                                    itemCount: 5,
-                                    itemSize: 20.0,
-                                    direction: Axis.horizontal,
-                                  ),
+                                  RatingBar.builder(
+                                      itemSize: 25,
+                                      maxRating: 1,
+                                      itemBuilder: (context ,_)=>Icon(Icons.star,color: Colors.amber,size: 5,) ,
+                                      onRatingUpdate: (rating){}),
                                   Text(
                                     '''[3.5]''',
                                     style: TextStyle(fontSize: 20),

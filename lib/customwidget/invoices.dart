@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:onlineshopping/customwidget/productlistmodel.dart';
+import 'package:onlineshopping/main.dart';
 
 class invoice extends StatefulWidget {
  Productlistmodel Prodetails;
@@ -293,41 +294,106 @@ class _invoiceState extends State<invoice> {
                             labelStyle: const TextStyle(color: Colors.black),
                             hintText: 'Type here....'),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Card(
-                            elevation: 20,
-                            color: Colors.green,
-                            shape: RoundedRectangleBorder(
+                      Padding(
+                        padding: const EdgeInsets.all(40),
+                        child: Card(
+                          elevation: 20,
+                          color: Colors.green,
+                          shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20),
 
-                            ),
-                            child: TextButton(onPressed: () {  }, child:Text('Cash on Delivery',style: GoogleFonts.ubuntu(
-                                textStyle: const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold))),
+                        ),
+                          child: TextButton(onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (_) => AlertDialog(
+                                  content: Container(
+                                    height: sohan/1.65,
+                                    width: sohan1/1.01,
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                         height: sohan/3.70,
+                                          child: Image.asset('images/order.png',fit: BoxFit.fill,),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(15),
+                                          child: Center(
+                                            child: Text(
+                                              'Order Placed Successfully!',
+                                              style: GoogleFonts.ubuntu(
+                                                textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 12),
+                                          child: Center(
+                                              child: Text(
+                                                  'Congratulations! Your order has been placed',
+                                                  style: GoogleFonts.ubuntu(
+                                                    textStyle: TextStyle(fontSize: 13.5, color: Colors.black),
+                                                  ))),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.only(top: 12),
+                                          child: Center(
+                                              child: Text(
+                                            'You can track your order number \#${widget.Prodetails.id}',
+                                            style: GoogleFonts.ubuntu(
+                                              textStyle: TextStyle(fontSize: 14, color: Colors.black),
+                                            ))),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(top: 30),
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                      primary: (Colors.green),
+                                                      fixedSize: Size(120, 25),
+                                                      shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(30))),
 
-                            ),
+                                                  onPressed: (){},
+                                                  child: Text(
+                                                      'Track Order',
+                                                      style: GoogleFonts.ubuntu(
+                                                        textStyle: TextStyle(fontSize: 15, color: Colors.black),
+                                                      ))),
+                                              ElevatedButton(
+                                                  style: ElevatedButton.styleFrom(
+                                                      primary: (Colors.green),
+                                                      fixedSize: Size(150, 35),
+                                                      shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(30))),
+
+                                                  onPressed: (){
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Myhome()));
+                                                  },
+                                                  child: Text(
+                                                      'Continue Shopping',
+                                                      style: GoogleFonts.ubuntu(
+                                                        textStyle: TextStyle(fontSize: sohan1/35, color: Colors.black),
+                                                      ))),
+                                            ],
+                                          ),
+                                        )
+
+                                      ],
+                                    ),
+                                  ),
+                                )
+                            );
+                          }, child:Text('Place Order',style: GoogleFonts.spectral(
+                              textStyle: const TextStyle(
+                                  fontSize: 25,
+                                  color: Colors.black,))),
+
                           ),
-                          Card(
-                            elevation: 20,
-                            color: Colors.green,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              
-                          ),
-                            child: TextButton(onPressed: () {  }, child:Text('Payment',style: GoogleFonts.ubuntu(
-                                textStyle: const TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold))),
-                              
-                            ),
-                          ),
-                          
-                        ],
+                        ),
                       )
                     ],
                   ),
